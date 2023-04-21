@@ -9,6 +9,11 @@ const productSchemna =new mongoose.Schema({
         type:String,
         required:[true,"Please Enter Product description"]
     },
+    oldPrice:{
+        type:Number,
+        required:[true,"Please Enter Product Price"],
+        maxLength:[8,"Price less than 99999999"]
+    },
     price:{
         type:Number,
         required:[true,"Please Enter Product Price"],

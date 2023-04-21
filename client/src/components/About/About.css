@@ -1,0 +1,38 @@
+.about-container{
+    width: 100%;
+    background:#a6ff72;
+}
+
+.about-container >h1{
+    margin:2vmax 4vmax;
+    padding-top: 2vmax;
+    text-align:center;
+    font-size:2vmax;
+    font-weight: 600;
+    color:#117204;
+}
+.about-container >p{
+    margin:0 4vmax;
+    padding-bottom: 2vmax;
+    font-size:1.2vmax;
+    font-weight: 400;
+    color: #117204;
+}
+
+.about-container .btn{
+    background: #117204;
+    padding:0.5vmax 2vmax;
+    
+    margin-bottom: 2vmax;
+    margin-left: 75%;
+    font-size:1.2vmax;
+    font-weight:500;
+    color: #a6ff72;
+    border-radius: 1vmax;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.about-container .btn:hover{
+    transform: scale(1.05);
+    color:#a6ff72;
+    background:#117204;
+}

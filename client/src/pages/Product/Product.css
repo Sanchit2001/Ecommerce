@@ -1,0 +1,145 @@
+.product{
+    padding :2vmax;
+    display: flex;
+    gap:4vmax;
+}
+.product .left{
+    display: flex;
+    flex-direction: column;
+    width: 50vmax;
+    
+} 
+.product .left .mainImage >img{
+    width: 100%;
+    max-height:60vmax; 
+    object-fit: contain;
+}
+ .images{
+    align-self: center;
+    width: 100%;
+    display:flex;
+    overflow-x: scroll;
+}
+.product .left .images >img{
+    max-width: 8vmax;
+    max-height:5vmax;
+    object-fit: cover;
+    margin:1vmax;
+    position: inherit;
+    
+}
+
+.product .right{
+    display: flex;
+    flex-direction: column;
+    gap:1vmax;
+}
+.product .right .price{
+    font-size: 2vmax;
+    font-weight: 500;
+    color: #810900;
+}
+.product .right >p{
+    font-size: 1.3vmax;
+    font-weight: 300;
+    text-align: justify;
+}
+.product .right .quantity{
+    display: flex;
+    align-items: center;
+    gap:1vmax;
+}
+.product .right .quantity >button{
+    width: 2.5vmax;
+    align-items: center;
+    height:2.5vmax;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+.product .right .add{
+    width:max-content;
+    padding: 10px 20px;
+    border: none;
+    background: #5bbe33;
+    color: white;
+    justify-content: center;
+    gap:2vmax;
+    cursor: pointer;
+    align-items: center;
+    font-weight: 500;
+}
+.product .right .add >i{
+    padding-right: 1vmax;
+}
+.product .right .add:hover{
+    background: #117204;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap:1vmax;
+    color:gray;
+    font-size: 1vmax;
+    margin-top: 3vmax;
+}
+.info >hr{
+    width: 100%;
+    border: 1px solid rgba(240, 229, 229,0.6);
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap:1vmax;
+    color:gray;
+    font-size: 1vmax;
+    width: 100%;
+}
+.details >span{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.details >span >span{
+    margin-top:0.5vmax;
+}
+
+@media screen and (max-width:990px){
+    .product{
+        flex-direction: column;
+        align-items: center;
+    }
+    .product .right >h1{
+        align-self: center;
+    }
+    .right{
+        align-items: start;
+        margin: 2vmax 4vmax;
+        
+    }
+    .product .right .price{
+        font-size: 2.5vmax;
+        align-self: flex-start;
+    }
+    .product .right >p{
+        font-size: 2vmax;
+        align-self: center;
+    }
+    .info{
+        font-size: 1.5vmax;
+    }
+    .details{
+        font-size: 1.5vmax;
+    }
+
+    .product .right .quantity >button{
+        width:5vmax;
+        height: 5vmax;
+    }
+    .product .left{
+        width: 100%;
+        
+    }
+}

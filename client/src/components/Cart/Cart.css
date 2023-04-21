@@ -1,0 +1,122 @@
+
+.cart{
+    padding:2vmax 4vmax;
+    justify-content: center;
+    width:max-content;
+    height: 100vh;
+}
+.cart >h1{
+    margin-bottom: 4vmax;
+    color: gray;
+    font-weight: 400;
+    font-size:2.5vmax;
+    text-align: start;
+}
+
+.cart .item{
+    display: flex;
+    align-items: center;
+    gap:2vmax;
+    border-bottom: 1px solid rgba(228, 228, 228,0.75);
+    margin:2vmax;
+    justify-content: space-between;
+    align-self: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0,0.3);
+}
+
+.cart .item >img{
+    width:8vmax;
+    height:8vmax;
+    object-fit: cover;
+    margin-left: 1vmax;
+}
+.cart .item .details >h1{
+    font-size: 1.8vmax;
+    font-weight: 500;
+    padding-top: 1vmax;
+
+}
+.cart .item .details >p{
+    color: gray;
+    margin-bottom: 1vmax;
+    font-size: 1.4vmax;
+
+}
+.cart .item .details .price{
+    color: red;
+}
+.cart .item >i{
+    cursor: pointer;
+    color: red;
+    font-size: 1.4vmax;
+    margin-left: 2vmax;
+    margin-right: 2vmax;
+    
+}
+.cart .item >i:hover{
+    transform: scale(1.05);
+    transition: ease-in-out;
+}
+.cart .total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.6vmax;
+    margin: 2vmax;
+}
+.cart >button{
+    width:max-content;
+    padding: 10px 20px;
+    border: none;
+    background: #5bbe33;
+    color: white;
+    justify-content: center;
+    gap:2vmax;
+    cursor: pointer;
+    align-items: center;
+    font-weight: 500;
+}
+.cart >button:hover{
+    transform: scale(0.95);
+}
+.cart .reset {
+    color:red;
+    font-size:small;
+    margin-left: 2vmax;
+    margin-top: 1vmax;
+    margin-right: 2vmax;
+    float:right;
+}
+
+@media screen and (max-width:769px){
+    .cart{
+        width: 100%;
+    }
+    .cart >h1{
+        text-align: center;
+    }
+    .cart .total{
+        font-size: medium;
+        margin: 2vmax;
+    }
+    .cart >button{
+        width: 100%;
+        margin-top: 1vmax;
+    }
+    .cart .reset{
+        float: none;
+        text-align: center;
+        margin-top: 2vmax;
+    }
+    .cart .item >img{
+        margin:1vmax 0;
+        margin-left: 1vmax;
+    }
+    .cart .details >h1{
+        width: max-content;
+    }
+    .cart .details >p{
+        display: none;
+    }
+   
+}

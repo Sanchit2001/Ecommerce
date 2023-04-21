@@ -5,17 +5,15 @@ const connectDB = require("./config/database");
 process.on("uncaughtException",err=>{
     console.log(`Error:${err.message}`);
     console.log(`Shutting down due to Uncaught Exception`);
-    server.close(()=>{
-        process.exit(1);
-    })
+    process.exit(1);
 })
 
 dotenv.config({path:"backend/config/config.env"});
 
 connectDB();
 
-app.listen(process.env.PORT,()=>{
-    console.log(`Running on htpp://localhost:${process.env.PORT}`)
+const server = app.listen(process.env.PORT,()=>{
+    console.log(`Running on http://localhost:${process.env.PORT}`)
 });
 
 //Unhandled Promise Errors
