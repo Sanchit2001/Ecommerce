@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import './Products.css';
 import Metadata from '../Metadata';
 
-
 const Products = () => {
-
-  const catId = parseInt(useParams.id)
+  const catId = parseInt(useParams.id);
+  const {keyword} = useParams();
+  console.log(keyword)
   const [sort,setSort] = useState(null)
   return (
     <div className='products'>
@@ -52,9 +52,10 @@ const Products = () => {
             </div>
           </div>
         </div>  
-          
         <div className='right'>
-          <Lists catId={catId} sort={sort}/>
+          <h1>Showing All Products {keyword? `For ${keyword}`:""}</h1>
+          <hr/>
+          <Lists catId={catId} sort={sort} keyword={keyword}/>
         </div>
     </div>
   )

@@ -16,7 +16,7 @@ const Catagories = [
     },
     {
         id:3,
-        name: "Olis and Ointments",
+        name: "Oils and Ointments",
         img:{url:"https://img.freepik.com/free-vector/detailed-jojoba-element-collection_52683-55758.jpg?size=626&ext=jpg"},
     },
     {
@@ -91,4 +91,4 @@ const Scroller = () => {
   )
 }
 
-export default Scroller
+export default Scroller;

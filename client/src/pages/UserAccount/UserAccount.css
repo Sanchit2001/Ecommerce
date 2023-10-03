@@ -1,0 +1,191 @@
+.account{
+    display: flex;
+    margin-top: 55px;
+    height:100%;
+    align-items: center;
+}
+
+.left{
+    flex:3;
+    position: relative;
+}
+.greet{
+    display: flex;
+    padding:0.5vmax;
+    margin:1vmax;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    justify-content:start;
+    height: 20%;
+}
+.greet >div >p{
+    align-self: center;
+    color: gray;
+    margin-top: 1vmax;
+    margin-left: 2vmax;
+    font-weight: 600;
+    font-family: "Roboto";
+}
+.greet >div >h3{
+    font-size: 2vmax;
+    width: max-content;
+    margin-top: -1vmax;
+    margin-left: 2vmax;
+    font-family:"Roboto";
+}
+.greet >img{
+    width:4rem;
+    height:4rem;
+    margin: 1vmax;
+    border-radius: 100%;
+    margin-left: 1.5vmax;
+} 
+.left .menu{
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin: 1vmax;
+    height:78%;
+}
+.left .menu >ul{
+    list-style: none;
+    padding: 1vmax;
+
+}
+.left .menu >ul >li{
+    padding: 1vmax 0.5vmax;
+    align-self: center;
+}
+.menu-item{
+    text-decoration: none;
+    font: 500 1.5vmax "Roboto";
+    color: #666464;    
+}
+.menu-item >i{
+    font-size: 1.5vmax;
+    margin-left: 1.5vmax;
+}
+.menu-item >span{
+    margin-left: 3vmax;
+}
+.left .menu >button{
+    border: none;
+    font-size: 1.5vmax;
+    padding: 1vmax;
+    width: max-content;
+    color: white;
+    background: tomato;
+    margin-left: 1.2vmax;
+    width:90%;
+    margin-bottom: 1vmax;
+}
+.left .menu >button >i{
+    margin-right: 3vmax;
+}
+.right{
+    flex:7;
+    margin-top: 1vmax;
+    height: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-right: 1vmax;
+}
+.right .greet{
+    display:none;
+}
+.menu-item:hover{
+    color: black;
+}
+
+.profileContainer{
+    display: flex;
+    height:70vh;
+    align-items: center;
+    justify-self: center;
+}
+.profileContainer .myProfile >h1{
+    padding:1vmax;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font: 500 1.8vmax "Roboto";
+
+}
+.profileContainer .myProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex:2;
+}
+.profileContainer .myProfile >img{
+    height: 11vmax;
+    width:11vmax;
+}
+.profileContainer .myProfile .btn{
+    border: 1px solid black;
+    margin-top: 2vmax;
+}
+.profileContainer .myProfile .btn:hover{
+    background:#ececec;
+    transform: scale(1.05);
+}
+.profileDetails{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    justify-content: center;
+    flex:3;
+}
+.profileDetails >div{
+    display: flex;
+    margin: 1.5vmax;
+    align-items: baseline;
+    justify-content:stretch;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-top: 1vmax;
+    padding-left: 1vmax;
+    background: #fdfbfb;
+    box-shadow:0 5px 5px rgba(0,0,0,0.2);
+}
+.profileDetails >div >h4{
+    font: 400 1.5vmax "Roboto";
+    flex:2;
+    color: #666666;
+}
+.profileDetails >div >p{
+    font: 300 1.5vmax "Roboto";
+    flex:4;
+    color: #949494;
+}
+
+
+@media screen and (max-width:769px){
+    .account{
+        flex-direction: column-reverse;
+        height: 100%;
+        width: 100%;
+    }
+    .left .greet{
+        display: none;
+    }
+    .right .greet{
+        display: flex;
+        justify-content: center;
+    }
+    .left{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }  
+    .menu .menu-item{
+        font-size:2.5vmax;
+        display: inline;
+    }
+    .left .menu >button{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 1vmax;
+        justify-content: center;
+
+    }
+    .profileContainer{
+        height: max-content;
+        padding: 1vmax;
+    }
+}

@@ -15,9 +15,9 @@ exports.createProduct =asyncErrors( async (req,res,next)=>{
 //Return all products
 exports.getAllProducts =asyncErrors( async (req,res)=>{
 
-    const resultsPerpage = 10;
+    //const resultsPerpage = 100;
     const productCount = await Product.countDocuments();
-    const apiFeatures  =new ApiFeatures(Product.find(),req.query).search().filter().pagination(resultsPerpage);
+    const apiFeatures  =new ApiFeatures(Product.find(),req.query).search().filter();
     const products = await apiFeatures.query;
     console.log(productCount);
     //const products = await Product.find({name:{$regex:"",$options:"i"}});

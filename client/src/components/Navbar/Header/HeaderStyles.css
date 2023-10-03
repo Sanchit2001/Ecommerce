@@ -4,11 +4,11 @@ nav{
     justify-content: space-between;
     background:#fff;
     padding: 5px 40px 5px 40px;
-    margin:0.4rem;
     border-bottom: 2px solid #5bbe33;
-    border-radius:15px;
-    box-shadow: 5px 5px 15px #07fa1b66;
-    position: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index:2;
 }
 .logo-icon{
     font-size: 1.5rem;
@@ -19,6 +19,7 @@ nav{
 
 #navLinks{
     display: flex;
+    width: max-content;
     align-items:center;
     justify-content:center;
     padding:0;
@@ -27,37 +28,37 @@ nav{
 
 #navLinks li{
     list-style: none;
-    padding: 0 20px;
+    padding: 0 1vmax;
     position: relative;
 }
-#navLinks li a{
+#navLinks li .link{
     text-decoration:none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #5bbe33;
 }
-#navLinks li a span{
-    padding-left: 20px;
+#navLinks li .link span{
+    padding-left: 1vmax;
     display: none;
 }
-#navLinks li a:hover{
+#navLinks li .link:hover{
     
     color: #117204;
 }
-#navLinks li a:active{
+#navLinks li .link:active{
     
     color: #07fa1b66;
 }
-#navLinks li a:active::after{
+#navLinks li .link:active::after{
     content: "";
     width: 30%;
     height: 2px;
     background:#07fa1b66;
     position: absolute;
     bottom: -4px;
-    left: 20px;
+    left: 1vmax;
 }
-#navLinks li a:hover::after{
+#navLinks li .link:hover::after{
     content: "";
     width: 30%;
     height: 2px;
@@ -84,7 +85,6 @@ nav{
         position: fixed;
         top:0;
         right: -300px;
-        opacity: 0.9;
         width:250px;
         height:100vh;
         box-shadow: 0 40px 60px rgba(7, 250, 27, 0.4);
@@ -113,7 +113,7 @@ nav{
         font-size: 24px;
         cursor: pointer;
     }
-    #navLinks li a span{
+    #navLinks li .link span{
         padding-left: 20px;
         display: inline;
     }

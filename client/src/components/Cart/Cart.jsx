@@ -1,54 +1,88 @@
 import React from 'react'
 import './Cart.css'
 import Metadata from '../../pages/Metadata';
-const data = [
-    {
-        id:1,
-        img:[{url:"https://media.istockphoto.com/id/1175603836/es/foto/semillas-de-calabaza.jpg?s=1024x1024&w=is&k=20&c=KPy_oIeHma7X3_t_QSzB3DrRqKo_FfFOe-LaBwe3JeM="},
-        {url:"https://media.istockphoto.com/id/172360856/es/foto/semillas-de-calabaza.jpg?s=1024x1024&w=is&k=20&c=8C9aIiJXJ5DOuWsQ8W7cjoMK77176BkbzRa7j2VaufU="}],
-        title:"Pumpkin Seeds",
-        desc:"description of nutritious pumpkin seeds",
-        avgRating:4.2,
-        oldPrice:249,
-        price:199,
-    },
-    {
-        id:2,
-        img:[{url:"https://media.istockphoto.com/id/897079662/es/foto/semillas-de-girasol.jpg?s=1024x1024&w=is&k=20&c=lbiUEICJLMq5-B5ID1b70EAyt7-74xWktaGU3mlLHOA="},
-        {url:"https://media.istockphoto.com/id/897059802/photo/sunflower-seeds.jpg?s=612x612&w=0&k=20&c=RL4-RL9qAm6EsKaJknLV50gfh1kg9HJvIctoM2J5_OM="}],
-        title:"Sunflower Seeds",
-        desc:"description of nutritious sunflower seeds",
-        avgRating:3.6,
-        oldPrice:299,
-        price:249,
-    },
-];
+import CartItemCard from './CartItemCard';
+import { Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart, removeItemFromCart } from '../../actions/cartActions';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 const Cart = () => {
-  return (
-    <div className='cart'>
-        <Metadata title="Your Cart"/>
-        <h1>Products in your cart</h1>
-        {data?.map(item=>(
-            <div className='item' key={item.id}>
-                <img src={item.img[0].url}/>
-                <div className='details'>
-                    <h1>{item.title}</h1>
-                    <p>{item.desc?.substring(0,100)}...</p>
-                    <div className="price">1X Rs. {item.price}</div>
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { cartItems } = useSelector((state) => state.cart);
+    const {isAuthenticated} = useSelector((state)=>state.user)
+    const increaseQuantity = (id, quantity, stock) => {
+        const newQty = quantity + 1;
+        if (stock <= quantity) {
+            return;
+        }
+        dispatch(addItemToCart(id, newQty));
+    }
+    const decreaseQuantity = (id, quantity) => {
+        const newQty = quantity - 1;
+        if (1 >= quantity) {
+            return;
+        }
+        dispatch(addItemToCart(id, newQty));
+    }
+    const deleteItem = (id) => {
+        dispatch(removeItemFromCart(id));
+    }
+
+    const checkoutHandler = ()=>{
+        
+        navigate("/shipping");
+    
+    }
+
+    return (
+        <Fragment>
+            {cartItems.length === 0 ? (
+                <div className='emptyCart'>
+                    <p>No Items in Your Cart</p>
+                    <Link to='/products'>View Products</Link>
                 </div>
-                <i className="fa-regular fa-trash-can"/>
-            </div>   
-            
-        ))}
-        <hr/>
-        <div className='total'>
-            <span>SUBTOTAL</span>
-            <span>Rs. 498</span>
-        </div>
-        <button>PROCEED TO CHECKOUT</button>
-        <div className='reset'>RESET CART</div>
-    </div>
-  )
+            ) :
+                (
+                    <Fragment>
+                        <div className="cartPage">
+                            <div className="cartHeader">
+                                <p>Product</p>
+                                <p>Quantity</p>
+                                <p>Subtotal</p>
+                            </div>
+                            {cartItems && cartItems.map((item,index) => (
+                                <div className="cartContainer">
+                                    <CartItemCard item={item} deleteItem={deleteItem} key={index}/>
+                                    <div className="cartInput">
+                                        <button onClick={() => decreaseQuantity(item.product, item.quantity)}>-</button>
+                                        {item.quantity}
+                                        <button onClick={() => increaseQuantity(item.product, item.quantity, item.stock)}>+</button>
+                                    </div>
+                                    <p className="cartSubtotal">{`₹${item.price * item.quantity}`}</p>
+                                </div>
+                            ))}
+
+                            <div className='cartGrossProfit'>
+                                <div></div>
+                                <div className='cartGrossProfitBox'>
+                                    <p>Gross Total</p>
+                                    <p>{`₹${cartItems.reduce((acc,item) => acc+item.quantity*item.price,0)}`}</p>
+                                </div>
+                                <div></div>
+                                <div className='checkOutBtn'>
+                                    <button onClick={checkoutHandler}>Check Out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </Fragment>
+                )
+            }
+        </Fragment>
+
+    )
 }
 
 export default Cart

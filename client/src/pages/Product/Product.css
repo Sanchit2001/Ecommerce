@@ -2,11 +2,13 @@
     padding :2vmax;
     display: flex;
     gap:4vmax;
+    width: 100%;
 }
 .product .left{
     display: flex;
     flex-direction: column;
-    width: 50vmax;
+    width: 55%;
+    margin-top:2.2vmax;
     
 } 
 .product .left .mainImage >img{
@@ -33,6 +35,9 @@
     display: flex;
     flex-direction: column;
     gap:1vmax;
+    width: 100%;
+    margin-top:2.2vmax;
+    box-shadow: none;
 }
 .product .right .price{
     font-size: 2vmax;
@@ -48,6 +53,7 @@
     display: flex;
     align-items: center;
     gap:1vmax;
+    
 }
 .product .right .quantity >button{
     width: 2.5vmax;
@@ -58,22 +64,23 @@
     cursor: pointer;
     border: none;
 }
-.product .right .add{
+.product .right .quantity .add{
     width:max-content;
-    padding: 10px 20px;
+    padding: 20px 25px;
     border: none;
     background: #5bbe33;
     color: white;
     justify-content: center;
-    gap:2vmax;
+    gap:1vmax;
     cursor: pointer;
     align-items: center;
     font-weight: 500;
+    border-radius: 20px;
 }
-.product .right .add >i{
+.product .right .quantity .add >i{
     padding-right: 1vmax;
 }
-.product .right .add:hover{
+.product .right .quantity .add:hover{
     background: #117204;
 }
 
@@ -105,23 +112,60 @@
 .details >span >span{
     margin-top:0.5vmax;
 }
+.submitReview{
+    border: none;
+    background-color: tomato; 
+    font: 500 1.2vmax "Roboto"; 
+    border-radius: 20px; 
+    padding: 0.6vmax 2vmax; 
+    transition: all 0.5s; 
+    color: white;
+    cursor: pointer;
+    outline: none;
+    width: max-content;
+}
+.submitReview:hover { 
+    background-color: rgb(197, 68, 45); 
+    transform: scale(1.1);
+}
 
-@media screen and (max-width:990px){
+.reviewsHeading{
+    color: #000000be;
+    font: 500 x-large "Roboto";
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+    padding: 1vmax;
+    width: 20vmax;
+    margin: auto;
+    margin-bottom: 4vmax;
+}
+.reviewContainer{
+    display: flex;
+    overflow: auto;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width:850px){
     .product{
         flex-direction: column;
         align-items: center;
     }
     .product .right >h1{
         align-self: center;
+        
     }
     .right{
         align-items: start;
-        margin: 2vmax 4vmax;
-        
+        padding: 0rem 2rem;
+        margin-top: 0px;
     }
     .product .right .price{
-        font-size: 2.5vmax;
-        align-self: flex-start;
+        font-size: 1.5rem;
+        align-self: center;
+
+    }
+    .product .right .quantity{
+        align-self: center;
     }
     .product .right >p{
         font-size: 2vmax;
@@ -137,9 +181,18 @@
     .product .right .quantity >button{
         width:5vmax;
         height: 5vmax;
+        align-self: center;
+    }
+    .product .right .add{
+        float: left;
     }
     .product .left{
         width: 100%;
-        
+        margin-top: 3.5rem;
+        margin-bottom: 0;
     }
+    .submitReview{
+        align-self: center;
+    }
+
 }

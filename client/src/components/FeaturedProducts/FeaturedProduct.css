@@ -22,3 +22,9 @@
     justify-content: center;
     gap:1vmax;
 }
+
+@media screen and (max-width:767px) {
+    .featuredProducts{
+        margin: 0.5vmax;
+    }
+}

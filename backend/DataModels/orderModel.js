@@ -17,7 +17,11 @@ const orderSchema = new mongoose.Schema({
         landmark:{
             type:String
         },
-        pin:{
+        country:{
+            type:String, 
+            required:true
+        },
+        pinCode:{
             type:Number,
             required:true
         },
@@ -35,13 +39,16 @@ const orderSchema = new mongoose.Schema({
             type:Number,
             required:true
         },
+        stock:{
+            type:Number,
+            required:true
+        },
         quantity:{
             type:Number,
             required:true
         },
         image:{
             type:String,
-            required:true
         },
         product:{
             type:mongoose.Schema.ObjectId,
